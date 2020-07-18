@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+  <script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>
+
+</head>
+<body>
+  <a-scene>
+    <a-assets>
+      <a-asset-item id="sonricsObj" src="./sonricsobj/sonrics.obj"></a-asset-item>
+      <a-asset-item id="sonricsMtl" src="./sonricsobj/sonrics.mtl"></a-asset-item>
+
+      <img id="space" src="./images/space.jpg">
+      <img id="deckback" src="./images/deckback.jpg">
+      <img id="penta" src="./images/penta.jpg">
+    </a-assets>
+
+    <a-sky src="#space"></a-sky>
+
+    <a-plane
+      width="7"
+      height="7"
+      src="#penta"
+      position="0 -1 0"
+      rotation="-90 180 0"
+      color=
+    ></a-plane>
+    <a-obj-model
+      src="#sonricsObj"
+      mtl="#sonricsMtl"
+      position="0 1 -3"
+      scale="2 2 2"
+      rotation="-90 0 0"
+      animation="property:position; from: 0 1 -1.5; to: 0 1.04 -1.5; dur: 2000; easing:linear; loop:false"
+    ></a-obj-model>
+    <a-text
+      id="textGlobe"
+      width="3.9"
+      value="ke rollo morr@, 20 varos y \n te leo las cartas si oke"
+      font="https://cdn.aframe.io/fonts/Monoid.fnt"
+      align="center"
+      color="#FFF"
+      position="0 3.5 -3"
+      geometry="primitive: plane; width: 3.1; height: 1"
+      material="color: #000"
+    ></a-text>
+    <a-text
+      id="startBtn"
+      width="4"
+      value="arre"
+      color="#000"
+      align="center"
+      font="https://cdn.aframe.io/fonts/Monoid.fnt"
+      position="0 3 -2.9"
+      geometry="primitive: plane; width: .7; height: .2"
+      material="color: #FFFF00"
+      event-set__enter="_event: mouseenter; scale: 1.7 1.7 1.7"
+      event-set__leave="_event: mouseleave; scale: 1 1 1"
+    ></a-text>
+    <a-text
+      id="arrow"
+      value="--->"
+      position="0 1 -2.9"
+      color="#FFFF00"
+      animation="property: position; to: 0.4 1 -2.9; loop:true"
+      visible="false"
+    ></a-text>
+
+    <a-camera>
+      <a-cursor></a-cursor>
+    </a-camera>
+  </a-scene>
+
+  <script src="main.js"></script>
+</body>
+</html>
