@@ -5,7 +5,7 @@ const btn = document.querySelector('#startBtn');
 
 objModel.addEventListener('animationcomplete', ()=> {
   let fromY = objModel.getAttribute('position').y;
-  let toY = fromY === 1 ? 1.04 : 1;
+  let toY = fromY === 1 ? 1.2 : 1;
 
   objModel.setAttribute('animation', {
     property: 'position',
